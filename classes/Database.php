@@ -9,7 +9,7 @@ class Database
     private $database;
     private $username;
     private $password;
-    private $pdo;
+    public $pdo;
 
     public function __construct($host, $database, $username, $password)
     {
@@ -28,10 +28,12 @@ class Database
           }
     }
 
-    public function query()
-    {
-        
-    }
+    // public function query($sql)
+    // {
+    //     $pdo = $this->pdo;
+    //     $stmt = $pdo->prepare($sql);
+    //     $stmt->execute();
+    // }
 
 
 }

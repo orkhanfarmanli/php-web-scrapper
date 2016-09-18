@@ -4,22 +4,20 @@ namespace App;
 
 class Scrapper
 {
-
     public $scraped_page;
     public $scraped_data;
 
     public function __construct($url)
     {
-           $this->scraped_page = $this->curl($url);
-           $this->scraped_data = $this->scrape_between($this->scraped_page, '<!--HUGAGLHUALUHGAG-->', '<!--BALGHULBALUHGBAG-->');
-           echo "<div style='display:none'>$this->scraped_data</div>";
+        $this->scraped_page = $this->curl($url);
+        $this->scraped_data = $this->scrape_between($this->scraped_page, '<!--HUGAGLHUALUHGAG-->', '<!--BALGHULBALUHGBAG-->');
+        include 'resource/views/home.php';
+        echo "<div style='display:none'>$this->scraped_data</div>";
     }
 
-
-
-  public function curl($url)
-  {
-      $options = array(
+    public function curl($url)
+    {
+        $options = array(
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_FOLLOWLOCATION => true,
           CURLOPT_AUTOREFERER => true,
@@ -30,23 +28,21 @@ class Scrapper
           CURLOPT_URL => $url,
       );
 
-      $chandle = curl_init();
-      curl_setopt_array($chandle, $options);
-      $data = curl_exec($chandle);
-      curl_close($chandle);
+        $chandle = curl_init();
+        curl_setopt_array($chandle, $options);
+        $data = curl_exec($chandle);
+        curl_close($chandle);
 
-      return $data;
-  }
+        return $data;
+    }
 
-     public function scrape_between($data, $start, $end)
-     {
-         $data = stristr($data, $start);
-         $data = substr($data, strlen($start));
-         $stop = stripos($data, $end);
-         $data = substr($data, 0, $stop);
+    public function scrape_between($data, $start, $end)
+    {
+        $data = stristr($data, $start);
+        $data = substr($data, strlen($start));
+        $stop = stripos($data, $end);
+        $data = substr($data, 0, $stop);
 
-         return $data;
-     }
-
-
+        return $data;
+    }
 }
