@@ -3,6 +3,8 @@
 use App\Database;
 use App\Scrapper;
 use App\Parser;
+use App\Search;
+
 
 $db = new Database('localhost', 'work_project', 'root', 'admin');
 $db->connect();
