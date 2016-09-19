@@ -7,6 +7,3 @@ ini_set('html_errors', 1);
 
 require 'vendor/autoload.php';
 require 'app.php';
-if (isset($_POST['submit'])) {
-  require 'search.php';
-}

@@ -17,7 +17,7 @@
         <div class="row">
             <br>
             <h4>After loading the data you can search them from your own database</h4>
-            <form id="searchForm" action="index.php" method="POST">
+            <form id="searchForm" action="/web-scrapper/" method="POST">
                 <div class="row">
                     <div class="form-group col-md-2">
                         <select name='searchParameter' class="form-control">
