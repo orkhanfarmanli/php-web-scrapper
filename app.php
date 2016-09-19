@@ -9,7 +9,8 @@ use App\Search;
 $db = new Database('localhost', 'work_project', 'root', 'admin');
 $db->connect();
 
-$scraped_data = new Scrapper('http://search.nndb.com/search/nndb.cgi?n=John&omenu=unspecified&offset=0');
+// second parameter is the page count
+$scraped_data = new Scrapper('http://search.nndb.com/search/nndb.cgi?n=John&omenu=unspecified&offset=0', 5);
 $parseScrapped = new Parser($db->pdo);
 
 if (isset($_POST['submit'])) {

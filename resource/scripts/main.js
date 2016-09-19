@@ -1,21 +1,26 @@
 $(document).ready(function() {
 
 
-    var childLength = $('tbody tr').length;
+    var tables = $('#contentTable table').get();
     var peopleArray = [];
 
 
-    for (var i = 2; i <= childLength - 1; i++) {
-        peopleArray[i] = {};
-        peopleArray[i].name = $('tbody tr:nth-child(' + i + ') td:nth-child(1) a').html();
-        peopleArray[i].occupation = $('tbody tr:nth-child(' + i + ') td:nth-child(2) font font').html();
-        peopleArray[i].born = $('tbody tr:nth-child(' + i + ') td:nth-child(3) font tt').html();
-        peopleArray[i].died = $('tbody tr:nth-child(' + i + ') td:nth-child(4) font tt').html();
-        peopleArray[i].summary = $('tbody tr:nth-child(' + i + ') td:nth-child(5) font font').html();
+    var a = 0;
+    for (var j = 1; j <= tables.length; j++) {
+        var rowCount = $('#contentTable table:nth-child(' + j + ') tr').length;
+        for (var i = 2; i <= rowCount; i++) {
+            peopleArray[a] = {};
+            peopleArray[a].name = $('#contentTable table:nth-child(' + j + ') tbody tr:nth-child(' + i + ') td:nth-child(1) a').html();
+            peopleArray[a].occupation = $('#contentTable table:nth-child(' + j + ') tbody tr:nth-child(' + i + ') td:nth-child(2) font font').html();
+            peopleArray[a].born = $('#contentTable table:nth-child(' + j + ') tbody tr:nth-child(' + i + ') td:nth-child(3) font tt').html();
+            peopleArray[a].died = $('#contentTable table:nth-child(' + j + ') tbody tr:nth-child(' + i + ') td:nth-child(4) font tt').html();
+            peopleArray[a].summary = $('#contentTable table:nth-child(' + j + ') tbody tr:nth-child(' + i + ') td:nth-child(5) font font').html();
+            a+=1;
+        }
     }
+
+
     var $loadbutton = document.createElement("button");
-
-
 
     var params = {
         peopleArray: peopleArray

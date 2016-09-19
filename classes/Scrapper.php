@@ -7,12 +7,16 @@ class Scrapper
     public $scraped_page;
     public $scraped_data;
 
-    public function __construct($url)
+    public function __construct($url, $pageCount)
     {
-        $this->scraped_page = $this->curl($url);
-        $this->scraped_data = $this->scrape_between($this->scraped_page, '<!--HUGAGLHUALUHGAG-->', '<!--BALGHULBALUHGBAG-->');
+        for ($i = 0; $i < $pageCount * 20; $i += 20) {
+            $newUrl = $this->scrape_between($url, 'h', 'offset=');
+            $newUrl = 'h'.$newUrl.'offset='.$i;
+            $this->scraped_page = $this->curl($newUrl);
+            $this->scraped_data .= $this->scrape_between($this->scraped_page, '<!--HUGAGLHUALUHGAG-->', '<!--BALGHULBALUHGBAG-->');
+        }
         include 'resource/views/home.php';
-        echo "<div style='display:none'>$this->scraped_data</div>";
+        echo "<div id='contentTable' style='display:none'>$this->scraped_data</div>";
     }
 
     public function curl($url)
