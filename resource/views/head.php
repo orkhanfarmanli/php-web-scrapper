@@ -5,14 +5,20 @@
     <meta charset="utf-8">
     <title>Web Scrapper</title>
     <link rel="stylesheet" href="resource/bootstrap/bootstrap.min.css" />
+    <script src="resource/scripts/jquery-3.1.0.min.js"></script>
 </head>
 
 <body>
     <div class="container">
         <a href="/web-scrapper"><h3 class="text-center">Web Scrapper</h3></a>
         <div class="row">
+            <h4>Push the button to scrape page(s)</h4>
+            <form class="" action="/web-scrapper/" method="get">
+              <input class="scrapeButton btn btn-primary" type="submit" name="scrape" value="Start Scrape">
+            </form>
+            <!-- <button type="button" name="button" class="scrapeButton btn btn-primary">Start Scrape</button> -->
             <h4>Push the button and wait few seconds for the scrapped data to be loaded into database. You'll get an alert when it finishes</h4>
-            <button type="button" name="button" class="loadButton btn btn-primary">Load All Data</button>
+            <button type="button" name="button" class="loadButton btn btn-primary">Insert into db</button>
         </div>
         <div class="row">
             <br>
@@ -39,6 +45,4 @@
         </div>
     </div>
 </body>
-<script src="resource/scripts/jquery-3.1.0.min.js"></script>
-<script src="resource/scripts/main.js"></script>
 </html>

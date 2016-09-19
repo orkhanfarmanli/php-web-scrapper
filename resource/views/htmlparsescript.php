@@ -1,3 +1,4 @@
+<script type="text/javascript">
 $(document).ready(function() {
 
 
@@ -19,22 +20,21 @@ $(document).ready(function() {
         }
     }
 
-
-    var $loadbutton = document.createElement("button");
-
     var params = {
         peopleArray: peopleArray
     };
     var paramJSON = JSON.stringify(params);
 
+        $('.loadButton').click(function() {
+            $.post(
+                'index.php', {
+                    data: paramJSON
+                },
+                function(data) {
+                    alert("Loaded data into database")
+                })
+        })
 
-    $('.loadButton').click(function() {
-        $.post(
-            'index.php', {
-                data: paramJSON
-            },
-            function(data) {
-                alert("Loaded data into database")
-            })
-    })
 })
+
+</script>

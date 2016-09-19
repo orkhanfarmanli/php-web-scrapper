@@ -15,7 +15,7 @@ class Scrapper
             $this->scraped_page = $this->curl($newUrl);
             $this->scraped_data .= $this->scrape_between($this->scraped_page, '<!--HUGAGLHUALUHGAG-->', '<!--BALGHULBALUHGBAG-->');
         }
-        include 'resource/views/home.php';
+        include 'resource/views/htmlparsescript.php';
         echo "<div id='contentTable' style='display:none'>$this->scraped_data</div>";
     }
 

@@ -9,9 +9,15 @@ use App\Search;
 $db = new Database('localhost', 'work_project', 'root', 'admin');
 $db->connect();
 
+require 'resource/views/head.php';
+
 // second parameter is the page count
-$scraped_data = new Scrapper('http://search.nndb.com/search/nndb.cgi?n=John&omenu=unspecified&offset=0', 5);
-$parseScrapped = new Parser($db->pdo);
+if (isset($_GET['scrape'])) {
+    $scraped_data = new Scrapper('http://search.nndb.com/search/nndb.cgi?n=John&omenu=unspecified&offset=0', 5);
+}
+if (isset($_POST['data'])) {
+    $parseScrapped = new Parser($db->pdo);
+}
 
 if (isset($_POST['submit'])) {
     $searchParameter = $_POST['searchParameter'];
@@ -19,7 +25,5 @@ if (isset($_POST['submit'])) {
     $search = new Search($db->pdo, $searchParameter, $searchWord);
 }
 
-
 // chart
-
 require 'resource/views/chart.php';
