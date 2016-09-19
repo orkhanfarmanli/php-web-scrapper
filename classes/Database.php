@@ -28,12 +28,15 @@ class Database
           }
     }
 
-    // public function query($sql)
-    // {
-    //     $pdo = $this->pdo;
-    //     $stmt = $pdo->prepare($sql);
-    //     $stmt->execute();
-    // }
+    public function all()
+    {
+        $sql = "SELECT * FROM people";
+        $pdo = $this->pdo;
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $allData = $stmt->fetchAll();
+        return $allData;
+    }
 
 
 }

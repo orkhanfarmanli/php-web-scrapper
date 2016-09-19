@@ -17,3 +17,8 @@ if (isset($_POST['submit'])) {
     $searchWord = $_POST['searchWord'];
     $search = new Search($db->pdo, $searchParameter, $searchWord);
 }
+
+
+// chart
+
+require 'resource/views/chart.php';
