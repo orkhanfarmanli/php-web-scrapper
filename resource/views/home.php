@@ -13,7 +13,7 @@
         <a href="/web-scrapper"><h3 class="text-center">Web Scrapper</h3></a>
         <div class="row">
             <h4>Push the button to scrape page(s)</h4>
-            <form class="" action="/web-scrapper/" method="post">
+            <form class="" action="index.php" method="post">
               <button type="submit" name="scrape" class="scrapeButton btn btn-primary">Start Scraping</button>
             </form>
             <!-- <button type="button" name="button" class="scrapeButton btn btn-primary">Start Scrape</button> -->
