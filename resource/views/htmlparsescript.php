@@ -1,7 +1,9 @@
 <script type="text/javascript">
+
+// this scripts takes the scraped tables and parses it into arrray
+// and then the ajax call is triggered when the button with 'loadButton' class is pushed
+
 $(document).ready(function(){
-
-
 
     var tables = $('#contentTable table').get();
     var peopleArray = [];

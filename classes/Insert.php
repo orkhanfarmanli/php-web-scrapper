@@ -2,9 +2,8 @@
 
 namespace App;
 
-
-
-// actually this class has nothing to do with parsing but anyways :D
+// the reason I do insert in another class is that this action is kind of complex and needs to be derived from scraper class
+// it is easier to read it like this
 
 class Insert
 {

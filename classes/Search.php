@@ -2,6 +2,9 @@
 
 namespace App;
 
+
+// simple search class that echoes a table of elements
+
 class Search
 {
     public function __construct($pdo, $searchParameter, $searchWord)
