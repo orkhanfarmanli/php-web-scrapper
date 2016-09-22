@@ -2,7 +2,11 @@
 
 namespace App;
 
-class Parser
+
+
+// actually this class has nothing to do with parsing but anyways :D
+
+class Insert
 {
     public function __construct($pdo)
     {

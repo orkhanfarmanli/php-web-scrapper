@@ -7,6 +7,8 @@ class Scrapper
     public $scraped_page;
     public $scraped_data;
 
+    // this magic method scrapes the given link as the object is instantiated from this class
+
     public function __construct($url, $pageCount)
     {
         for ($i = 0; $i < $pageCount * 20; $i += 20) {
@@ -18,6 +20,9 @@ class Scrapper
         include 'resource/views/htmlparsescript.php';
         echo "<div id='contentTable' style='display:none'>$this->scraped_data</div>";
     }
+
+
+    // standart curl function that returns data from provided url
 
     public function curl($url)
     {
@@ -40,6 +45,8 @@ class Scrapper
         return $data;
     }
 
+
+    // this function is used to get the scraped data between tags or the whatever you want
     public function scrape_between($data, $start, $end)
     {
         $data = stristr($data, $start);
